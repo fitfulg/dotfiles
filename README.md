@@ -16,6 +16,9 @@ This repository contains custom configurations for my development environment, s
 - **`update_git_plugin.py`**: Python script that updates the `git.plugin.zsh` file from Oh My Zsh. (You can ignore it).
 - **`create_zshrc_backup.py`**: Python script that copies the content of the `~/.zshrc` file to the repository as `zshrc_backup.zsh` to share the configuration. (You can ignore it).
 
+## Note on File System Usage
+
+This repository's scripts and configurations are designed to work with the **Windows file system** (`/mnt/c/...`) within WSL. While this allows for easy interoperability between Windows and WSL, it can impact performance.
 
 ## How to Use
 
