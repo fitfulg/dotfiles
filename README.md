@@ -1,4 +1,4 @@
-# Dotfiles Repository
+# Dotfiles Repository (v0.1.0)
 
 This repository contains custom configurations for my development environment, specifically designed for use with **Ubuntu** in **Windows Subsystem for Linux (WSL)**.
 
