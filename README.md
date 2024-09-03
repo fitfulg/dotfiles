@@ -9,8 +9,14 @@ This repository contains custom configurations for my development environment, s
 - **`WindowsTerminal/settings.json`**: Configuration file for the Windows Terminal.
 - **`zsh/git.plugin.zsh`**: Configuration file for the Git plugin in Oh My Zsh. It contains the updated configuration according to the current Zsh version. (just a nice big zsh cheatsheet)
 
-### Scripts
-- **`docker_dev_env.py`**: Python script that pulls and runs a Docker image (`ercardona/my-dev-environment`) to set up a development environment in Windows WSL. This environment includes Ubuntu, Oh-My-Zsh, and several configurations, apps, and plugins.
+### Scripts and commands
+-  Run the commands to pull and run the Docker container:
+    ```bash
+    docker pull ercardona/my-dev-environment:latest
+    docker run -it ercardona/my-dev-environment:latest /bin/bash
+    ```
+This sets up a development environment in Windows WSL. This environment includes Ubuntu, Oh-My-Zsh, and several configurations, apps, and plugins.
+(or you can  run **`docker_dev_env.py`**) 
 - **`backup_to_zshrc.py`**: Python script that copies the content of `zshrc_backup.zsh` to `~/.zshrc`, allowing you to apply those settings by running `source ~/.zshrc`.
 - **`AutoHotkey/ToggleWindowsTerminal.ahk`**: AutoHotkey script that toggles the visibility of the Windows Terminal window using a hotkey (example: Ctrl+Alt+S).
 - **`update_git_plugin.py`**: Python script that updates the `git.plugin.zsh` file from Oh My Zsh. (You can ignore it).
