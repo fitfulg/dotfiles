@@ -167,6 +167,7 @@ export MY_DOWNLOADS="/mnt/c/Users/$windows_username/Downloads"
 export MY_CHROME="/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 export MY_DEV="/mnt/c/Users/$windows_username/Desktop/DEV"
 export MY_CODEX_WORKSPACE="/mnt/c/Users/$windows_username/Documents/Codex"
+export MY_D2R_LOADER="/mnt/c/Users/$windows_username/Desktop/jocs/Diablo2RLoader-main"
 
 # Debugging: Print paths to verify
 echo "MY_DESKTOP is set to: $MY_DESKTOP"
@@ -174,6 +175,7 @@ echo "MY_DOWNLOADS is set to: $MY_DOWNLOADS"
 echo "MY_CHROME is set to: $MY_CHROME"
 echo "MY_DEV is set to: $MY_DEV"
 echo "MY_CODEX_WORKSPACE is set to: $MY_CODEX_WORKSPACE (use: codexrepos)"
+echo "MY_D2R_LOADER is set to: $MY_D2R_LOADER (use: d2loaderdir, d2loader)"
 
 # Aliases for common actions
 alias desktop="cd \"$MY_DESKTOP\""
@@ -181,8 +183,13 @@ alias downloads="cd \"$MY_DOWNLOADS\""
 alias chrome="\"$MY_CHROME\""
 alias dev="cd \"$MY_DEV\""
 alias codexrepos="cd \"$MY_CODEX_WORKSPACE\""
+alias d2loaderdir="cd \"$MY_D2R_LOADER\""
 alias bat="batcat"
 alias exp='explorer.exe .'
+
+d2loader() {
+    powershell.exe -ExecutionPolicy Bypass -File "$(wslpath -w "$MY_D2R_LOADER/D2Loader.ps1")" "$@"
+}
 
 # Alias for editing Windows Terminal settings
 if [ -n "$MY_SETTINGS" ]; then
