@@ -158,6 +158,7 @@ echo "MY_DESKTOP is set to: $MY_DESKTOP"
 echo "MY_DOWNLOADS is set to: $MY_DOWNLOADS"
 echo "MY_CHROME is set to: $MY_CHROME"
 echo "MY_DEV is set to: $MY_DEV"
+echo "MY_CODEX_WORKSPACE is set to: $MY_CODEX_WORKSPACE (use: codexrepos)"
 
 # Aliases for common actions
 alias desktop="cd \"$MY_DESKTOP\""
