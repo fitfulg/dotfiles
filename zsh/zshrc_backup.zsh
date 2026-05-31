@@ -114,11 +114,26 @@ cheat() {
 detect_windows_terminal_settings() {
     echo "Detecting Windows Terminal settings.json path..."
 
-    # List directories under /mnt/c/Users/ excluding system directories and files
-    export windows_username=$(ls -d /mnt/c/Users/*/ | grep -vE 'Public|Default|Default\ User|All\ Users' | awk -F '/' '{print $(NF-1)}')
+    # Find the first real Windows user profile and ignore WSL/Codex sandbox profiles.
+    local user_dir
+    local candidate
+    windows_username=""
+    for user_dir in /mnt/c/Users/*/; do
+        candidate="${user_dir%/}"
+        candidate="${candidate##*/}"
 
-    # Ensure only the first valid directory is selected
-    windows_username=$(echo "$windows_username" | head -n 1)
+        case "$candidate" in
+            Public|Default|Default\ User|All\ Users|CodexSandbox*)
+                continue
+                ;;
+        esac
+
+        if [ -d "$user_dir/Desktop" ] || [ -d "$user_dir/Documents" ]; then
+            windows_username="$candidate"
+            break
+        fi
+    done
+    export windows_username
 
     if [ -z "$windows_username" ]; then
         echo "Could not detect Windows username."
