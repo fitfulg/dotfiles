@@ -151,7 +151,7 @@ export MY_DESKTOP="/mnt/c/Users/$windows_username/Desktop"
 export MY_DOWNLOADS="/mnt/c/Users/$windows_username/Downloads"
 export MY_CHROME="/mnt/c/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 export MY_DEV="/mnt/c/Users/$windows_username/Desktop/DEV"
-export MY_CODEX_WORKSPACE="/mnt/c/Users/$windows_username/Documents/Codex/2026-05-30/podemos-seguir-en-este-chat-donde/castegardenshed"
+export MY_CODEX_WORKSPACE="/mnt/c/Users/$windows_username/Documents/Codex"
 
 # Debugging: Print paths to verify
 echo "MY_DESKTOP is set to: $MY_DESKTOP"
@@ -164,16 +164,9 @@ alias desktop="cd \"$MY_DESKTOP\""
 alias downloads="cd \"$MY_DOWNLOADS\""
 alias chrome="\"$MY_CHROME\""
 alias dev="cd \"$MY_DEV\""
+alias codexrepos="cd \"$MY_CODEX_WORKSPACE\""
 alias bat="batcat"
 alias exp='explorer.exe .'
-
-codex() {
-    if [ "$#" -eq 0 ]; then
-        cd "$MY_CODEX_WORKSPACE"
-    else
-        command codex "$@"
-    fi
-}
 
 # Alias for editing Windows Terminal settings
 if [ -n "$MY_SETTINGS" ]; then
@@ -199,4 +192,3 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(git z sudo history)
 source $ZSH/oh-my-zsh.sh
-
